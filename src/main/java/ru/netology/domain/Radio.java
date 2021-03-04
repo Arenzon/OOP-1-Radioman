@@ -10,6 +10,23 @@ public class Radio {
     private int currentVolume;
     private boolean on;
 
+    public Radio ( int maxRadioStation,
+                   int minRadioStation,
+                   int currentRadioStation,
+                   int maxVolume,
+                   int minVolume,
+                   int currentVolume ) {
+        this.maxRadioStation = maxRadioStation;
+        this.minRadioStation = minRadioStation;
+        this.currentRadioStation = currentRadioStation;
+        this.maxVolume = maxVolume;
+        this.minVolume = minVolume;
+        this.currentVolume = currentVolume;
+    }
+
+    public Radio () {
+    }
+
     public String getName () {
         return name;
     }
@@ -39,10 +56,10 @@ public class Radio {
     }
 
     public void setCurrentRadioStation ( int currentRadioStation ) {
-        if(currentRadioStation>maxRadioStation) {
+        if (currentRadioStation > maxRadioStation) {
             return;
         }
-        if(currentRadioStation<minRadioStation) {
+        if (currentRadioStation < minRadioStation) {
             return;
         }
         this.currentRadioStation = currentRadioStation;
@@ -69,10 +86,10 @@ public class Radio {
     }
 
     public void setCurrentVolume ( int currentVolume ) {
-        if(currentVolume > maxVolume){
+        if (currentVolume > maxVolume) {
             return;
         }
-        if(currentVolume<minVolume){
+        if (currentVolume < minVolume) {
             return;
         }
         this.currentVolume = currentVolume;
@@ -85,7 +102,8 @@ public class Radio {
     public void setOn ( boolean on ) {
         this.on = on;
     }
-    public void pressNextStation() {
+
+    public void pressNextStation () {
         if (currentRadioStation >= maxRadioStation) {
             setCurrentRadioStation(minRadioStation);
         } else {
@@ -93,7 +111,7 @@ public class Radio {
         }
     }
 
-    public void pressPrevStation() {
+    public void pressPrevStation () {
         if (currentRadioStation <= minRadioStation) {
             setCurrentRadioStation(maxRadioStation);
         } else {
@@ -101,12 +119,12 @@ public class Radio {
         }
     }
 
-    public void pressPlusVolume() {
+    public void pressPlusVolume () {
 
         setCurrentVolume(currentVolume + 1);
     }
 
-    public void pressMinusVolume() {
+    public void pressMinusVolume () {
 
         setCurrentVolume(currentVolume - 1);
     }
